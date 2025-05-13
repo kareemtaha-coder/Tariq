@@ -1,0 +1,15 @@
+:host {
+  display: inline-block;
+  box-sizing:border-box
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

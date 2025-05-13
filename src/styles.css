@@ -1,0 +1,44 @@
+
+@tailwind utilities;
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-bg: #ffffff; /* light background */
+  --color-surface: #ffffff; /* white surface */
+  --color-primary: #0e3a30; /* deep green text/icons */
+  --color-primary-dark: #092620; /* darker green for hover */
+  --color-secondary: #c3a96f; /* gold accent */
+  --color-accent: #c3a96f; /* gold accent */
+  --color-muted: #6b7280; /* gray for text descriptions */
+  --color-border: #e5e7eb; /* light border */
+  --color-text: #1c1c1c; /* dark readable text */
+  
+}
+
+
+.dark {
+  --color-bg: #0d0d0d; /* Dark background */
+  --color-surface: #1c1c1c; /* dark surface */
+  --color-primary: #c3a96f; /* gold text/icons */
+  --color-primary-dark: #a89058; /* darker gold for hover */
+  --color-secondary: #fdfcf9; /* off-white as secondary */
+  --color-accent: #fdfcf9; /* off-white accent */
+  --color-muted: #9ca3af; /* muted gray */
+  --color-border: #374151; /* gray border */
+  --color-text: #fdfcf9; /* white text */
+}
+/* Font settings */
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+html{
+      scroll-behavior: smooth;
+}
+
+/* RTL support for Arabic text */
+[lang="ar"] {
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  direction: rtl;
+}

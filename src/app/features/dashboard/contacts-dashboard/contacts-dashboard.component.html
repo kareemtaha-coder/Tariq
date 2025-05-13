@@ -1,0 +1,174 @@
+<section class="p-6 md:p-10 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+  <!-- Contact Header -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 pb-4 border-b-2 border-gray-200 dark:border-gray-700">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white tracking-tight">Contacts</h2>
+
+    <div class="flex items-center mt-4 md:mt-0">
+      <!-- View Toggle -->
+      <div class="flex bg-gray-200 dark:bg-gray-700 rounded-full p-1 shadow-inner mr-4">
+        <button
+          class="p-3 rounded-full transition-all duration-300 flex items-center justify-center"
+          [class.active]="isGridView"
+          [ngClass]="{'bg-primary text-white shadow-lg': isGridView, 'hover:bg-primary/10': !isGridView}"
+          (click)="toggleView(true)"
+          title="Grid View">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+        </button>
+        <button
+          class="p-3 rounded-full transition-all duration-300 flex items-center justify-center"
+          [class.active]="!isGridView"
+          [ngClass]="{'bg-primary text-white shadow-lg': !isGridView, 'hover:bg-primary/10': isGridView}"
+          (click)="toggleView(false)"
+          title="List View">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Refresh Button -->
+      <button
+        class="p-3 rounded-full transition-all duration-300 hover:bg-primary/10 flex items-center justify-center"
+        (click)="refreshData()"
+        title="Refresh Data">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      </button>
+
+      <!-- Download Excel Button -->
+      <button
+        class="p-3 rounded-full transition-all duration-300 hover:bg-primary/10 flex items-center justify-center"
+        (click)="downloadExcel()"
+        title="Download Excel">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Contact Content -->
+  <div [ngClass]="isGridView ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8' : ''">
+    <!-- Grid View -->
+    <ng-container *ngIf="isGridView; else listView">
+      <div
+        *ngFor="let contact of displayedContacts; let i = index"
+        class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl"
+      >
+        <div class="bg-primary py-5 px-6 text-xl font-bold text-white flex justify-between items-center">
+          {{ contact.name }}
+          <button
+            class="text-xs font-bold py-2 px-4 rounded-full uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+            [ngClass]="{
+              'bg-green-500 text-white shadow-md shadow-green-500/30': contact.isContact,
+              'bg-red-500 text-white shadow-md shadow-red-500/30': !contact.isContact
+            }"
+            (click)="toggleContactStatus(contact)"
+          >
+            {{ contact.isContact ? 'Contacted' : 'Not Contacted' }}
+          </button>
+        </div>
+        <div class="p-7">
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">Id:</span> <span>{{ i+1 }}</span>
+          </p>
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">Children:</span> <span>{{ contact.numberOfChildren }}</span>
+          </p>
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">Phone:</span> <span>{{ contact.phone }}</span>
+          </p>
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">Country:</span> <span>{{ contact.country }}</span>
+          </p>
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">City:</span> <span>{{ contact.city }}</span>
+          </p>
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">Plan:</span> <span>{{ contact.planChoice }}</span>
+          </p>
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">Course:</span> <span>{{ contact.course }}</span>
+          </p>
+          <p class="my-4 text-lg flex justify-between items-center text-gray-800 dark:text-gray-200">
+            <span class="font-semibold">Sent At:</span> <span>{{ contact.sentAt | date:'medium' }}</span>
+          </p>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <div class="overflow-x-auto">
+        <table class="w-full border-separate border-spacing-y-3">
+          <thead>
+            <tr>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left rounded-l-lg">Name</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">Id</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">Children</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">Phone</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">Country</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">City</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">Plan</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">Course</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left">Sent At</th>
+              <th class="bg-primary text-white font-bold uppercase text-sm tracking-wider py-5 px-5 text-left rounded-r-lg">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let contact of displayedContacts; let i = index"
+              class="bg-white dark:bg-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1"
+            >
+              <td class="py-5 px-5 rounded-l-lg">{{ contact.name }}</td>
+              <td class="py-5 px-5">{{ i + 1 }}</td>
+              <td class="py-5 px-5">{{ contact.numberOfChildren }}</td>
+              <td class="py-5 px-5">{{ contact.phone }}</td>
+              <td class="py-5 px-5">{{ contact.country }}</td>
+              <td class="py-5 px-5">{{ contact.city }}</td>
+              <td class="py-5 px-5">{{ contact.planChoice }}</td>
+              <td class="py-5 px-5">{{ contact.course }}</td>
+              <td class="py-5 px-5">{{ contact.sentAt | date:'medium' }}</td>
+              <td class="py-5 px-5 rounded-r-lg">
+                <button
+                  class="text-xs font-bold py-2 px-4 rounded-full uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                  [ngClass]="{
+                    'bg-green-500 text-white shadow-md shadow-green-500/30': contact.isContact,
+                    'bg-red-500 text-white shadow-md shadow-red-500/30': !contact.isContact
+                  }"
+                  (click)="toggleContactStatus(contact)"
+                >
+                  {{ contact.isContact ? 'Contacted' : 'Not Contacted' }}
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex justify-center items-center mt-8">
+    <button
+      class="bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded mx-2 transition-all duration-300"
+      (click)="prevPage()"
+      [disabled]="currentPage === 1"
+      [ngClass]="{'opacity-50 cursor-not-allowed': currentPage === 1}"
+    >
+      Previous
+    </button>
+    <span class="mx-4 font-semibold">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button
+      class="bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded mx-2 transition-all duration-300"
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      [ngClass]="{'opacity-50 cursor-not-allowed': currentPage === totalPages}"
+    >
+      Next
+    </button>
+  </div>
+</section>

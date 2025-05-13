@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: $primary-color !important;
+}
+
+/* Animation utilities - these should match the tailwind.config.js animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease-in-out;
+}
+
+.animate-fade-up-delay {
+  animation: fadeUp 0.7s ease-in-out 0.2s;
+}
+
+.animate-title {
+  animation: fadeUp 0.7s ease-in-out;
+}
+
+.animate-title-delay {
+  animation: fadeUp 0.7s ease-in-out 0.3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

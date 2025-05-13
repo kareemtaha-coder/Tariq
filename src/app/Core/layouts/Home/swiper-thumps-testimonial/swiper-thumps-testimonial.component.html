@@ -1,0 +1,376 @@
+<section class="testimonials-section py-8 md:py-16 relative overflow-hidden">
+  <!-- Subtle background elements -->
+  <div class="absolute inset-0 opacity-5">
+    <div
+      class="absolute top-20 right-10 w-32 h-32 rounded-full bg-primary blur-xl"
+    ></div>
+    <div
+      class="absolute bottom-40 left-20 w-24 h-24 rounded-full bg-accent blur-lg"
+    ></div>
+  </div>
+
+  <div class="container mx-auto px-4">
+    <!-- Section header with mobile-friendly size -->
+    <div class="text-center mb-8 md:mb-12">
+      <h2
+        class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 tracking-tight"
+      >
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary"
+        >
+          Our Students Love Their Teachers
+        </span>
+      </h2>
+      <div class="w-16 h-1 bg-teal-500 mx-auto mb-4"></div>
+      <p
+        class="text-sm md:text-base text-slate-700 dark:text-slate-300 max-w-lg mx-auto"
+      >
+        Discover what our students say about their learning journey with us
+      </p>
+    </div>
+
+    <!-- Main testimonial slider -->
+    <swiper-container
+      #mainContainer
+      class="testimonial-swiper"
+      init="false"
+      style="
+        width: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      "
+    >
+      <swiper-slide *ngFor="let testimonial of testimonials; let i = index">
+        <!-- Mobile design (for small screens) -->
+        <div
+          class="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden block md:hidden"
+        >
+          <!-- Image area with minimalist design -->
+          <div class="relative w-full h-48">
+            <img
+              [src]="testimonial.image"
+              class="w-full h-full object-cover"
+              [alt]="testimonial.name"
+            />
+            <!-- Course badge - overlayed on image -->
+            <div class="absolute top-4 left-4">
+              <span
+                class="px-3 py-1 bg-white/90 dark:bg-zinc-900/90 text-primary rounded-full text-xs font-medium backdrop-blur-sm"
+              >
+                {{ testimonial.course }}
+              </span>
+            </div>
+            <!-- Rating display - overlayed on image -->
+            <div class="absolute top-4 right-4">
+              <span
+                class="flex items-center bg-white/90 dark:bg-zinc-900/90 text-amber-500 px-2 py-1 rounded-full backdrop-blur-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-3 w-3 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  />
+                </svg>
+                <span class="ml-1 text-xs">{{ testimonial.rating }}</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Content area with app-like padding -->
+          <div class="p-4">
+            <!-- Student Name -->
+            <h3 class="text-xl font-bold text-primary dark:text-white mb-2">
+              {{ testimonial.name }}
+            </h3>
+
+            <!-- Short Quote -->
+            <p class="text-primary/80 dark:text-primary/80 text-sm italic mb-3">
+              "{{ testimonial.shortQuote }}"
+            </p>
+
+            <!-- Main Quote - preview only -->
+            <p
+              *ngIf="!isViewingDetails()"
+              class="text-md text-slate-800 dark:text-slate-200 mb-4 line-clamp-3"
+            >
+              "{{ testimonial.mainQuote }}"
+            </p>
+
+            <!-- Full quote when in details mode -->
+            <p
+              *ngIf="isViewingDetails()"
+              class="text-md text-slate-800 dark:text-slate-200 mb-4"
+            >
+              "{{ testimonial.mainQuote }}"
+            </p>
+
+            <!-- Actions row -->
+            <div class="flex justify-between items-center mt-4">
+              <!-- View/Hide Details Button -->
+              <button
+                class="flex items-center text-primary text-sm font-medium hover:text-secondary transition-colors"
+              >
+                <span>
+                  {{ isViewingDetails() ? "Hide details" : "Read more" }}
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1"
+                  [class.rotate-180]="isViewingDetails()"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop design (content on left, circular image on right) -->
+        <div
+          class="hidden md:flex bg-white dark:bg-zinc-900 rounded-xl overflow-hidden"
+        >
+          <!-- Content area (left side) -->
+          <div class="w-3/5 p-6 flex flex-col justify-center">
+            <!-- Course badge -->
+            <div class="mb-3">
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+              >
+                {{ testimonial.course }}
+              </span>
+            </div>
+
+            <!-- Student Name -->
+            <h3 class="text-2xl font-bold text-primary dark:text-white mb-2">
+              {{ testimonial.name }}
+            </h3>
+
+            <!-- Rating display -->
+            <div class="mb-3 flex items-center">
+              <span class="flex items-center text-amber-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 inline"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  />
+                </svg>
+                <span class="ml-2 text-sm text-slate-700 dark:text-slate-300">{{
+                  testimonial.rating
+                }}</span>
+              </span>
+            </div>
+
+            <!-- Short Quote -->
+            <p class="text-primary/80 dark:text-primary/80 text-lg italic mb-4">
+              "{{ testimonial.shortQuote }}"
+            </p>
+
+            <!-- Main Quote -->
+            <p
+              *ngIf="!isViewingDetails()"
+              class="text-lg text-slate-800 dark:text-slate-200 mb-6 line-clamp-3"
+            >
+              "{{ testimonial.mainQuote }}"
+            </p>
+
+            <!-- Full quote when in details mode -->
+            <p
+              *ngIf="isViewingDetails()"
+              class="text-lg text-slate-800 dark:text-slate-200 mb-6"
+            >
+              "{{ testimonial.mainQuote }}"
+            </p>
+
+            <!-- Actions row -->
+            <div class="mt-auto">
+              <!-- View/Hide Details Button -->
+              <button
+                class="flex items-center text-primary text-sm font-medium hover:text-secondary transition-colors"
+              >
+                <span>
+                  {{ isViewingDetails() ? "Hide details" : "Read more" }}
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1"
+                  [class.rotate-180]="isViewingDetails()"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Image area (right side) - circular image -->
+          <div class="w-2/5 flex items-center justify-center p-6">
+            <div
+              class="relative w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg"
+            >
+              <img
+                [src]="testimonial.image"
+                class="w-full h-full object-cover"
+                [alt]="testimonial.name"
+              />
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- Thumbs navigation - moved below main container and more compact -->
+    <swiper-container
+      #thumbsContainer
+      class="thumbs-swiper mt-4"
+      init="false"
+      style="width: 100%; height: auto; padding: 0.5rem 0"
+    >
+      <swiper-slide *ngFor="let testimonial of testimonials; let i = index">
+        <div
+          class="flex flex-col items-center transition-all duration-300 px-1"
+          [class.thumb-active]="currentIndex() === i"
+          (click)="goToTestimonial(i)"
+        >
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 transition-all duration-300"
+            [class.border-primary]="currentIndex() === i"
+            [class.border-transparent]="currentIndex() !== i"
+          >
+            <img
+              [src]="testimonial.avatar"
+              class="w-full h-full object-cover"
+              [alt]="testimonial.name"
+            />
+          </div>
+          <span
+            class="text-xs font-medium text-center text-slate-700 dark:text-slate-300 transition-all duration-300 mt-1"
+            [class.text-primary]="currentIndex() === i"
+          >
+            {{ testimonial.name }}{{ testimonial.name.length > 6 ? "..." : "" }}
+          </span>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- Stats Section with app-like cards -->
+    <div class="mt-8 grid grid-cols-2 gap-3">
+      <div
+        class="text-center p-4 rounded-lg bg-white/50 dark:bg-zinc-900/50 shadow-sm"
+      >
+        <div
+          class="text-2xl md:text-3xl font-bold text-purple-600 dark:text-purple-400"
+        >
+          98%
+        </div>
+        <div class="text-slate-700 dark:text-slate-300 text-xs md:text-sm">
+          Student Satisfaction
+        </div>
+      </div>
+
+      <div
+        class="text-center p-4 rounded-lg bg-white/50 dark:bg-zinc-900/50 shadow-sm"
+      >
+        <div
+          class="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400"
+        >
+          4.9/5
+        </div>
+        <div class="text-slate-700 dark:text-slate-300 text-xs md:text-sm">
+          Average Rating
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile-friendly CTA button -->
+    <div class="mt-8 text-center">
+      <button
+        (click)="this.contactService.openModal()"
+        class="w-full relative z-10 md:w-auto px-6 py-3 bg-primary text-white font-medium rounded-lg shadow-md hover:shadow-lg"
+      >
+        <span class="flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          Contact to Start Free Lesson
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<app-contact-form-modal></app-contact-form-modal>

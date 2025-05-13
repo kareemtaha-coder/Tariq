@@ -1,0 +1,193 @@
+<header class="sticky top-0 left-0 w-full bg-bg backdrop-blur-md shadow-sm z-50">
+  <div class="container mx-auto px-4 py-3">
+    <nav class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="/logo.webp" alt="Tabiiyn Institute Logo" class="h-10 w-auto">
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <!-- Dropdown Menu -->
+        <a routerLink="/" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">Home</a>
+        <div class="relative group">
+          <button class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">
+            <span>Courses</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 -translate-y-2 z-50">
+            <a routerLink="/courses/quran"  href="/courses/quran" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors duration-300 rounded-t-lg">Quran Studies</a>
+            <a routerLink="/courses/arabic"  href="/courses/arabic" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors duration-300">Arabic Language</a>
+            <a routerLink="/courses/islamic" href="/courses/islamic" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors duration-300 rounded-b-lg">Islamic Studies</a>
+          </div>
+        </div>
+        <a routerLink="/" href="/" (click)="navigateToFragment('about')" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">About Us</a>
+          @if (isUserLogedIn()) {
+          <a (click)="logout()" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">logout</a>
+        }@else{
+          <a routerLink="/login" href="/login" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">login</a>
+        }
+
+
+      </div>
+
+      <!-- Right side actions -->
+      <div class="flex items-center space-x-4">
+        <!-- Contact Button -->
+        <button (click)="this.contactService.openModal()"  class="hidden md:block px-4 py-2 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-all duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5">
+          Contact Us
+        </button>
+
+        <!-- Theme Toggle -->
+        <button
+          id="theme-toggle"
+          (click)="toggleTheme()"
+          class="p-2 rounded-full bg-primary/10 hover:bg-primary/20 focus:outline-none  transition-all duration-300"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-primary hidden dark:block transition-transform duration-300 hover:rotate-45"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-primary block dark:hidden transition-transform duration-300 hover:rotate-12"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="menu-button md:hidden p-2 rounded-full bg-primary/10 hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-all duration-300"
+          aria-label="Open menu"
+          (click)="toggleMobileMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              [attr.d]="mobileMenuOpen() ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      class="mobile-menu md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+      [class.max-h-0]="!mobileMenuOpen()"
+      [class.max-h-screen]="mobileMenuOpen()"
+    >
+      <div class="pt-4 pb-2 space-y-2 border-t border-gray-200 dark:border-gray-700">
+        <!-- Mobile Dropdown -->
+          <a
+          routerLink="/"           href="/"
+
+          (click)="closeMobileMenu()"
+          class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-300"
+        >
+          home
+        </a>
+        <div class="relative">
+          <button
+            (click)="toggleCoursesMenu()"
+            class="flex items-center justify-between w-full px-4 py-3 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-300"
+          >
+            <span>Courses</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 transform transition-transform duration-300"
+              [class.rotate-180]="coursesMenuOpen()"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            class="overflow-hidden transition-all duration-300 ease-in-out"
+            [class.max-h-0]="!coursesMenuOpen()"
+            [class.max-h-40]="coursesMenuOpen()"
+          >
+
+            <div class="pl-4 space-y-2 py-2">
+
+              <a
+                routerLink="/quran" href="/quran"
+                (click)="closeMobileMenu()"
+                class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-300"
+              >
+                Quran Studies
+              </a>
+              <a
+                routerLink="/arabic" href="/arabic"
+                (click)="closeMobileMenu()"
+                class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-300"
+              >
+                Arabic Language
+              </a>
+              <a
+                routerLink="/islamic" href="/islamic"
+                (click)="closeMobileMenu()"
+                class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-300"
+              >
+                Islamic Studies
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a
+
+          (click)="navigateToFragment('about') ; closeMobileMenu()"
+          href="/"
+          class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-300"
+        >
+          About Us
+        </a>
+        <a routerLink="/" href="/" (click)="navigateToFragment('about')" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">About Us</a>
+          @if (isUserLogedIn()) {
+          <a (click)="logout()" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">logout</a>
+        }@else{
+          <a routerLink="/login" href="/login" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300">login</a>
+        }
+        <button
+          (click)=" closeMobileMenu()"
+          class="w-full px-4 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-all duration-300 text-center"
+        >
+          Contact Us
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
