@@ -1,0 +1,155 @@
+/* Courses Section Styling */
+.courses-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid pattern for background */
+.grid-pattern {
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+.dark .grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Card hover effects */
+.course-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+}
+
+.card-front {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transition: all 0.5s ease;
+}
+
+/* Button animations */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes float-slow {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes pulse-slow {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes title {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation utility classes */
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-title {
+  animation: title 1s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Enhanced image hover effects */
+.course-card .aspect-\[4\/3\] img {
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.course-card:hover .aspect-\[4\/3\] img {
+  transform: scale(1.1);
+}
+
+/* Badge hover effects */
+.course-card .rounded-full.bg-white\/90 {
+  transition: all 0.3s ease;
+}
+
+.course-card:hover .rounded-full.bg-white\/90 {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Theme toggle for dark mode */
+@media (prefers-color-scheme: dark) {
+  .course-card .card-front {
+    box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.3);
+  }
+
+  .course-card:hover .card-front {
+    box-shadow: 0 30px 60px -15px rgba(var(--primary-rgb), 0.15);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .courses-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .course-card {
+    margin-bottom: 2rem;
+  }
+
+  .perspective-container {
+    perspective: none;
+  }
+}
+
+/* Fix for Safari */
+@supports (-webkit-touch-callout: none) {
+  .course-card {
+    transform: translateZ(0);
+  }
+}

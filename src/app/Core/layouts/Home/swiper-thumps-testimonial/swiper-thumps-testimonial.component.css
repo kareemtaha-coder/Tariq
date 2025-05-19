@@ -1,0 +1,389 @@
+
+/* === BASE STYLES === */
+.testimonials-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  background-position: center;
+  background-size: cover;
+  isolation: isolate;
+  contain: layout paint style;
+  max-height: 100vh; /* Ensure it fits on one screen */
+}
+
+
+/* === ANIMATIONS === */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.25); }
+  70% { box-shadow: 0 0 0 6px rgba(var(--primary-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* === SWIPER CUSTOM STYLES === */
+swiper-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  contain: content;
+}
+
+/* Fix swiper overflow issue */
+swiper-container::part(container) {
+  overflow: hidden;
+}
+
+swiper-container::part(wrapper) {
+  overflow: visible;
+}
+
+/* Main testimonial container */
+.testimonial-main-swiper {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-standard);
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: flat;
+  height: auto;
+  border: 1px solid rgba(229, 231, 235, 0.7);
+}
+
+.dark .testimonial-main-swiper {
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.testimonial-main-swiper:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Thumbnail swiper */
+.testimonial-thumbs-swiper {
+  width: 100%;
+  overscroll-behavior: none;
+  overflow: hidden;
+}
+
+swiper-slide {
+  opacity: 1;
+  transition: var(--transition-standard);
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+/* Thumbnails styles */
+.thumb-item {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: var(--transition-standard);
+  transform: scale(0.85);
+  filter: saturate(75%) brightness(0.95);
+  touch-action: manipulation;
+  box-shadow: var(--shadow-sm);
+  margin: 0 auto;
+}
+
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-standard);
+  -webkit-user-drag: none;
+}
+
+.thumb-item.active {
+  border-color: var(--primary);
+  transform: scale(1);
+  filter: saturate(100%) brightness(1);
+  animation: pulse-glow 2.5s infinite;
+  z-index: 1;
+}
+
+.thumb-item:hover {
+  transform: scale(0.95);
+  filter: saturate(90%) brightness(1);
+  border-color: rgba(var(--primary-rgb), 0.3);
+}
+
+.thumb-item.active:hover {
+  transform: scale(1.05);
+}
+
+/* Card specific styling */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1));
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: var(--transition-standard);
+  border: 1px solid rgba(var(--primary-rgb), 0.05);
+}
+
+.dark .testimonial-card-inner {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 1));
+  border-color: rgba(var(--primary-rgb), 0.1);
+}
+
+/* Student avatar */
+.student-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  box-shadow: 0 2px 6px rgba(var(--primary-rgb), 0.2);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.student-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.student-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+/* Rating stars */
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  color: var(--accent);
+  margin-right: 0.15rem;
+  flex-shrink: 0;
+}
+
+/* Animated orbs background */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(40px);
+  animation: float 20s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.orb-primary {
+  width: 20vw;
+  height: 20vw;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.15), rgba(var(--secondary-rgb), 0.1));
+}
+
+.orb-secondary {
+  width: 15vw;
+  height: 15vw;
+  background: linear-gradient(45deg, rgba(var(--accent-rgb), 0.1), rgba(var(--success-rgb), 0.05));
+  animation-delay: -7s;
+}
+
+/* Button for free consultation */
+.cta-button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.25);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 75%,
+    transparent 100%);
+  animation: shimmer 3s infinite;
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.35);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+}
+
+.cta-button svg {
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover svg {
+  transform: translateX(3px);
+}
+
+/* === RESPONSIVE STYLES === */
+@media (max-width: 1024px) {
+  .cta-button::before {
+    display: none; /* Disable shimmer on mobile for performance */
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .thumb-item.active {
+    animation: none; /* Disable animation on mobile */
+  }
+
+  .orb {
+    opacity: 0.2;
+    filter: blur(30px);
+  }
+
+  .testimonial-card-inner {
+    box-shadow: var(--shadow);
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonial-content {
+    padding: 0.75rem;
+  }
+
+  .testimonial-card-inner {
+    border-radius: 0.5rem;
+  }
+
+  .cta-button {
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* Fix any Safari bugs with overflow */
+@supports (-webkit-touch-callout: none) {
+  .testimonial-main-swiper {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  .grid-pattern {
+    background-attachment: scroll;
+  }
+
+  .testimonials-section {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* === DARK MODE === */
+.dark .testimonial-card-inner {
+  color: white;
+}
+
+.dark .testimonial-card-inner p {
+  color: rgba(var(--white-rgb), 0.85);
+}
+
+.dark .cta-button {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .cta-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* === UTILITY CLASSES === */
+/* Line clamp for quotes */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Reduce motion preference for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    animation: none !important;
+  }
+
+  .thumb-item.active {
+    animation: none !important;
+  }
+
+  .testimonial-main-swiper:hover,
+  .cta-button:hover {
+    transform: none !important;
+  }
+
+  .cta-button:hover svg {
+    transform: none !important;
+  }
+
+  .cta-button::before {
+    display: none;
+  }
+}

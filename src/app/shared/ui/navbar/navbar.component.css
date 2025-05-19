@@ -1,0 +1,208 @@
+:root {
+  --primary: #3b82f6; /* Blue-500 */
+  --primary-rgb: 59, 130, 246;
+  --primary-dark: #2563eb; /* Blue-600 */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0); }
+}
+
+/* Animation utility classes */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease;
+}
+
+.animate-slideIn {
+  animation: slideInRight 0.3s ease;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Logo animation */
+.logo-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Desktop dropdown menu enhancements */
+.group:hover .dropdown-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dropdown-item {
+  transform: translateX(-10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.group:hover .dropdown-item:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.group:hover .dropdown-item:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.group:hover .dropdown-item:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+/* Force show dropdown on hover */
+.group:hover > div {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* Make navbar slightly transparent when scrolled */
+header {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Fancy hover effects for buttons */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Mobile menu animations */
+.mobile-menu-enter {
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.mobile-menu-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 300ms ease, opacity 300ms ease;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Mobile menu fixed positioning */
+.mobile-menu {
+  height: calc(100vh - 57px);
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* Mobile links hover effect */
+.mobile-link {
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.mobile-link:active {
+  transform: scale(0.98);
+}
+
+/* Mobile accordion animation */
+.mobile-accordion button[aria-expanded="true"] + div {
+  max-height: 300px !important;
+  opacity: 1 !important;
+}
+
+/* Add staggered animation to dropdown items in mobile */
+.mobile-accordion button[aria-expanded="true"] + div .dropdown-item:nth-child(1) {
+  animation: slideInRight 0.3s ease forwards;
+  animation-delay: 0.05s;
+}
+
+.mobile-accordion button[aria-expanded="true"] + div .dropdown-item:nth-child(2) {
+  animation: slideInRight 0.3s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.mobile-accordion button[aria-expanded="true"] + div .dropdown-item:nth-child(3) {
+  animation: slideInRight 0.3s ease forwards;
+  animation-delay: 0.15s;
+}
+
+/* Iconography */
+.mobile-link svg {
+  transition: transform 0.3s ease;
+}
+
+.mobile-link:hover svg.text-gray-400 {
+  transform: translateX(3px);
+}
+
+/* Contact button pulse animation */
+.contact-button:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Theme toggle animation */
+.theme-toggle svg {
+  transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(360deg);
+}
+
+/* Theme buttons in mobile menu */
+.theme-btn {
+  transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Custom scrollbar for mobile menu when it gets too long */
+.mobile-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--primary-rgb), 0.3);
+  border-radius: 20px;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 350px) {
+  .mobile-link {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}

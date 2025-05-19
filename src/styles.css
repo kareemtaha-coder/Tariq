@@ -4,29 +4,60 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  --color-bg: #ffffff; /* light background */
-  --color-surface: #ffffff; /* white surface */
-  --color-primary: #0e3a30; /* deep green text/icons */
-  --color-primary-dark: #092620; /* darker green for hover */
-  --color-secondary: #c3a96f; /* gold accent */
-  --color-accent: #c3a96f; /* gold accent */
-  --color-muted: #6b7280; /* gray for text descriptions */
-  --color-border: #e5e7eb; /* light border */
-  --color-text: #1c1c1c; /* dark readable text */
-  
+  /* Base backgrounds */
+  --color-bg:           #FFFFFF; /* pure white (21:1 on #333) */
+  --color-surface:      #F4F4F4; /* very light gray (4.5:1 on #333) */
+
+  /* Text */
+  --color-text:         #1A1A1A; /* almost black (21:1 on white) */
+  --color-text-secondary:#3C3C3C;/* dark gray (7:1 on white) */
+
+  /* Primary actions (blue) */
+  --color-primary:      #0066CC; /* blue (4.6:1 on white) */
+  --color-primary-hover:#005BB5; /* darker blue */
+
+  /* Secondary actions (red/orange) */
+  --color-secondary:    #E53E3E; /* red (5.1:1 on white) */
+  --color-secondary-hover:#C53030;
+
+  /* Accent (success/green) */
+  --color-accent:       #2F855A; /* green (4.7:1 on white) */
+
+  /* Muted & borders */
+  --color-muted:        #6B7280; /* gray-500 */
+  --color-border:       #D1D5DB; /* gray-300 */
+
+  /* Focus ring */
+  --color-focus:        #84CC16; /* lime (7.1:1 on white) */
 }
 
-
+/* 3. dark‐mode overrides, equally high contrast */
 .dark {
-  --color-bg: #0d0d0d; /* Dark background */
-  --color-surface: #1c1c1c; /* dark surface */
-  --color-primary: #c3a96f; /* gold text/icons */
-  --color-primary-dark: #a89058; /* darker gold for hover */
-  --color-secondary: #fdfcf9; /* off-white as secondary */
-  --color-accent: #fdfcf9; /* off-white accent */
-  --color-muted: #9ca3af; /* muted gray */
-  --color-border: #374151; /* gray border */
-  --color-text: #fdfcf9; /* white text */
+  /* Base backgrounds */
+  --color-bg:           #121212; /* near black */
+  --color-surface:      #1E1E1E; /* dark gray */
+
+  /* Text */
+  --color-text:         #EDEDED; /* near white */
+  --color-text-secondary:#CCCCCC;/* light gray */
+
+  /* Primary actions */
+  --color-primary:      #3399FF; /* lighter blue on dark */
+  --color-primary-hover:#1E88FF;
+
+  /* Secondary actions */
+  --color-secondary:    #F56565; /* lighter red */
+  --color-secondary-hover:#E53E3E;
+
+  /* Accent */
+  --color-accent:       #48BB78; /* lighter green */
+
+  /* Muted & borders */
+  --color-muted:        #A0AEC0; /* gray-400 */
+  --color-border:       #2D2D2D; /* very dark gray */
+
+  /* Focus ring */
+  --color-focus:        #A3E635; /* bright lime */
 }
 /* Font settings */
 body {

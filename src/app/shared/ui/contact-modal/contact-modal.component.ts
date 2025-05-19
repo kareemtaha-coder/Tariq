@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, finalize } from 'rxjs/operators';
 import { throwError, Subscription } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ContactsService } from '../../../Core/services/contacts.service';
 
 export interface ContactFormData {
@@ -35,17 +35,27 @@ export class ContactFormModalComponent implements OnInit, OnDestroy {
   isError = false;
   errorMessage = '';
 
+  // Animation flags
+  showSuccessAnimation = false;
+  showErrorAnimation = false;
+
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private contactsService: ContactsService
+    private contactsService: ContactsService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
     this.initForm();
     // Subscribe to the modal state from the service
     this.subscription = this.contactsService.isModalOpen$.subscribe(
-      isOpen => this.isOpen = isOpen
+      isOpen => {
+        this.isOpen = isOpen;
+        if (isOpen) {
+          this.resetAnimations();
+        }
+      }
     );
   }
 
@@ -63,7 +73,7 @@ export class ContactFormModalComponent implements OnInit, OnDestroy {
       numberOfChildren: [0, [Validators.required, Validators.min(0)]],
       planChoice: ['basic'],
       course: ['', Validators.required],
-      brandName: ['alfath']
+      brandName: ['tabiiyn'] // Updated brand name to match your site
     });
   }
 
@@ -84,17 +94,38 @@ export class ContactFormModalComponent implements OnInit, OnDestroy {
     this.isSuccess = false;
     this.isError = false;
     this.errorMessage = '';
+    this.resetAnimations();
     this.initForm();
+  }
+
+  resetAnimations(): void {
+    this.showSuccessAnimation = false;
+    this.showErrorAnimation = false;
+
+    // Reapply animations after a short delay if the modal is open
+    if (this.isOpen && isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        if (this.isSuccess) {
+          this.showSuccessAnimation = true;
+        }
+        if (this.isError) {
+          this.showErrorAnimation = true;
+        }
+      }, 100);
+    }
   }
 
   tryAgain(): void {
     this.isError = false;
     this.errorMessage = '';
+    this.resetAnimations();
   }
 
   submitForm(): void {
     this.submitted = true;
     if (this.contactForm.invalid) {
+      // Highlight invalid fields with animation
+      this.animateInvalidFields();
       return;
     }
 
@@ -105,7 +136,7 @@ export class ContactFormModalComponent implements OnInit, OnDestroy {
       phone: this.contactForm.value.phone,
       numberOfChildren: this.contactForm.value.numberOfChildren,
       planChoice: 'starter',
-      brandName: 'alfath',
+      brandName: 'tabiiyn', // Updated brand name
       course: this.contactForm.value.course,
       city: this.contactForm.value.city
     };
@@ -114,7 +145,8 @@ export class ContactFormModalComponent implements OnInit, OnDestroy {
       .pipe(
         catchError((error: HttpErrorResponse) => {
           this.isError = true;
-          this.errorMessage = error.message || 'An unknown error occurred';
+          this.showErrorAnimation = true;
+          this.errorMessage = this.getReadableErrorMessage(error);
           return throwError(() => error);
         }),
         finalize(() => {
@@ -124,9 +156,42 @@ export class ContactFormModalComponent implements OnInit, OnDestroy {
       .subscribe({
         next: () => {
           this.isSuccess = true;
+          this.showSuccessAnimation = true;
         },
         error: () => {} // Error is handled in catchError
       });
+  }
+
+  getReadableErrorMessage(error: HttpErrorResponse): string {
+    if (error.status === 0) {
+      return 'Network error. Please check your internet connection and try again.';
+    }
+
+    if (error.status === 400) {
+      return 'There was an issue with the information you provided. Please check and try again.';
+    }
+
+    if (error.status === 404) {
+      return 'The server endpoint could not be found. Please try again later.';
+    }
+
+    if (error.status === 500) {
+      return 'Server error. Our team has been notified. Please try again later.';
+    }
+
+    return error.message || 'An unknown error occurred. Please try again.';
+  }
+
+  animateInvalidFields(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const invalidFields = document.querySelectorAll('.ng-invalid.ng-touched');
+      invalidFields.forEach((field: Element) => {
+        field.classList.add('shake-animation');
+        setTimeout(() => {
+          field.classList.remove('shake-animation');
+        }, 600);
+      });
+    }
   }
 
   hasError(controlName: string, errorName: string): boolean {

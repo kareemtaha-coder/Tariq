@@ -1,117 +1,222 @@
-<section class="testimonials-section py-16">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col xl:flex-row items-start">
-      <div class="w-full xl:w-2/5 mb-10 xl:mb-0 xl:pr-12">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
-        >
-          What Our Clients Say
-        </h2>
-        <div class="w-20 h-1 bg-indigo-500 mb-6"></div>
-        <p class="text-gray-700 dark:text-gray-300 mb-6">
-          Don't just take our word for it. See what our clients have to say
-          about their experience working with us. We're proud to have helped
-          businesses across various industries achieve their goals and transform
-          their operations.
-        </p>
-        <p class="text-gray-700 dark:text-gray-300">
-          Our team is dedicated to providing exceptional service and solutions
-          that drive real results. Join hundreds of satisfied customers who've
-          experienced the difference.
-        </p>
-      </div>
+<section class="testimonials-section relative overflow-hidden py-20 md:py-32">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 z-0">
+    <!-- Primary background with gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-black"></div>
 
-      <div class="w-full xl:w-3/5">
-        <swiper-container
-          #swiperEl
-          init="false"
-          space-between="20"
+    <!-- Animated orbs -->
+    <div class="absolute top-10 left-10 w-80 h-80 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl animate-float-slow"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-indigo-500/5 dark:bg-indigo-500/10 blur-[80px] animate-float"></div>
 
-          loop="true"
-          [breakpoints]="{
-             '350': { slidesPerView: 1.1 },
-            '640': { slidesPerView: 2.1 },
-            '1024': { slidesPerView: 2.1 }
-          }"
+    <!-- Decorative Grid -->
+    <div class="absolute inset-0 grid-pattern opacity-[0.03] dark:opacity-[0.05]"></div>
+  </div>
 
-          class="py-8"
-        >
-          @for (testimonial of testimonials; track testimonial.id) {
-          <swiper-slide>
-            <div
-              class="card-content flex flex-col items-center p-6 bg-white dark:bg-zinc-950 rounded-2xl h-[318px] shadow-lg"
-            >
-              <img
-                [src]="testimonial.avatar"
-                alt="{{ testimonial.name }}"
-                class="w-16 h-16 rounded-full mb-4 ring-2 ring-indigo-500"
-              />
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                {{ testimonial.name }}
-              </h3>
-              <p class="text-indigo-500 text-sm mb-2">{{ testimonial.role }}</p>
-              <p
-                class="text-gray-700 dark:text-gray-300 italic mb-4 text-center"
-              >
-                {{ testimonial.content }}
-              </p>
-              <div class="flex space-x-1 mt-auto">
-                <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
-                  <svg
-                    *ngIf="star <= testimonial.rating"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5 text-yellow-400"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286
-                        3.974a1 1 0 00.95.69h4.178c.969 0
-                        1.371 1.24.588 1.81l-3.385 2.46a1
-                        1 0 00-.364 1.118l1.287 3.974c.3.921-.755
-                        1.688-1.54 1.118l-3.386-2.46a1
-                        1 0 00-1.175 0l-3.386
-                        2.46c-.784.57-1.838-.197-1.539-1.118l1.286-3.974a1
-                        1 0 00-.364-1.118L2.35
-                        9.401c-.783-.57-.38-1.81.588-1.81h4.178a1
-                        1 0 00.95-.69l1.286-3.974z"
-                    />
-                  </svg>
+  <!-- Content Container -->
+  <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-10 md:mb-16 max-w-3xl mx-auto">
+      <p class="text-primary dark:text-primary-light font-medium mb-2 tracking-wide uppercase text-sm">Testimonials</p>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white relative inline-block">
+        <span class="relative z-10">What Our Students Say</span>
+        <span class="absolute -bottom-2 left-0 w-full h-3 bg-primary/10 dark:bg-primary/20 -z-10 transform -rotate-1"></span>
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg">
+        Discover how our Quranic education has transformed the lives of students around the world
+      </p>
+    </div>
 
-                  <svg
-                    *ngIf="star > testimonial.rating"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5 text-gray-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M11.049 2.927c.3-.921
-                        1.603-.921 1.902 0l1.286
-                        3.974a1 1 0 00.95.69h4.178c.969
-                        0 1.371 1.24.588
-                        1.81l-3.385 2.46a1 1 0
-                        00-.364 1.118l1.287 3.974c.3.921-.755
-                        1.688-1.54
-                        1.118l-3.386-2.46a1 1 0
-                        00-1.175 0l-3.386
-                        2.46c-.784.57-1.838-.197-1.539-1.118l1.286-3.974a1
-                        1 0 00-.364-1.118L2.35
-                        9.401c-.783-.57-.38-1.81.588-1.81h4.178a1
-                        1 0 00.95-.69l1.286-3.974z"
-                    />
-                  </svg>
-                </ng-container>
+    <!-- Main Swiper Carousel - Featured Testimonials -->
+    <div class="featured-testimonial mb-10 md:mb-20">
+      <swiper-container
+        #featuredSwiperEl
+        init="false"
+        effect="coverflow"
+        grab-cursor="true"
+        centered-slides="true"
+        slides-per-view="auto"
+        loop="true"
+        autoplay-delay="5000"
+        autoplay-disable-on-interaction="false"
+        coverflow-effect-rotate="5"
+        coverflow-effect-stretch="0"
+        coverflow-effect-depth="100"
+        coverflow-effect-modifier="1"
+        coverflow-effect-slide-shadows="false"
+        class="w-full">
+
+        @for (testimonial of testimonials; track testimonial.id) {
+        <swiper-slide class="max-w-[400px] md:max-w-[500px] opacity-100 transition-all duration-300">
+          <div class="relative h-full transform-gpu transition-all duration-500 group">
+            <!-- Card Container with 3D Effect -->
+            <div class="testimonial-card p-1 h-full perspective perspective-1000">
+              <!-- Inner 3D Card -->
+              <div class="h-full relative rounded-2xl overflow-hidden transform-gpu transition-transform duration-500 group-hover:scale-[1.02] hover:rotate-y-2 hover:rotate-x-2 shadow-2xl">
+                <!-- Card Background -->
+                <div class="absolute inset-0 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-black"></div>
+
+                <!-- Colored Border Glow -->
+                <div class="absolute inset-0 rounded-2xl border border-primary/20 dark:border-primary/30 group-hover:border-primary/40 dark:group-hover:border-primary/50 transition-all duration-300"></div>
+
+                <!-- Inner Content -->
+                <div class="relative p-6 md:p-8 lg:p-10 h-full flex flex-col">
+                  <!-- Quote Icon -->
+                  <div class="absolute right-4 md:right-6 top-4 md:top-6 opacity-15 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                    </svg>
+                  </div>
+
+                  <!-- Testimonial Content -->
+                  <div class="mb-6">
+                    <p class="text-gray-700 dark:text-gray-300 italic text-base md:text-lg leading-relaxed">{{ testimonial.content }}</p>
+                  </div>
+
+                  <!-- Profile and Rating -->
+                  <div class="mt-auto flex items-center">
+                    <div class="relative mr-4">
+                      <!-- Avatar Image with Decorative Border -->
+                      <div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-primary/50 shadow-lg">
+                        <img [src]="testimonial.avatar" alt="{{ testimonial.name }}" class="w-full h-full object-cover" loading="lazy">
+                      </div>
+
+                      <!-- Decorative Circle -->
+                      <div class="absolute -top-1 -left-1 w-4 h-4 rounded-full bg-primary/20 animate-pulse"></div>
+                    </div>
+
+                    <div>
+                      <h3 class="text-base md:text-lg font-bold text-gray-900 dark:text-white">{{ testimonial.name }}</h3>
+                      <p class="text-primary text-xs md:text-sm">{{ testimonial.role }}</p>
+                    </div>
+
+                    <!-- Rating Stars -->
+                    <div class="ml-auto flex items-center">
+                      <div class="flex space-x-1">
+                        @for (i of [1, 2, 3, 4, 5]; track i) {
+                          <svg
+                            [class.text-yellow-400]="i <= testimonial.rating"
+                            [class.text-gray-300]="i > testimonial.rating"
+                            class="w-4 h-4 md:w-5 md:h-5 transform transition-all duration-300"
+                            [class.scale-110]="i <= testimonial.rating"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                          </svg>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </swiper-slide>
-          }
-        </swiper-container>
+          </div>
+        </swiper-slide>
+        }
+      </swiper-container>
+
+      <!-- Navigation Arrows -->
+      <div class="navigation-arrows flex justify-center items-center mt-6 md:mt-8 space-x-4">
+        <button
+          (click)="prevSlide('featured')"
+          class="testimonial-nav-button prev-slide group"
+          aria-label="Previous testimonial">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-gray-600 dark:text-gray-300 transform transition-all duration-300 group-hover:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </div>
+        </button>
+        <button
+          (click)="nextSlide('featured')"
+          class="testimonial-nav-button next-slide group"
+          aria-label="Next testimonial">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-gray-600 dark:text-gray-300 transform transition-all duration-300 group-hover:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </button>
       </div>
+    </div>
+
+    <!-- Testimonials Grid - Mobile View Shows 1, Desktop Shows 3 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+      @for (i of [0, 1, 2]; track i) {
+        <div
+          class="transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl rounded-2xl overflow-hidden"
+          [class.animate-delay-0]="i === 0"
+          [class.animate-delay-300]="i === 1"
+          [class.animate-delay-600]="i === 2">
+
+          <!-- Testimonial Card with Hover Effects -->
+          <div class="relative h-full bg-white dark:bg-gray-900 rounded-2xl shadow-lg group">
+            <!-- Card Content -->
+            <div class="p-4 sm:p-5 md:p-6 flex flex-col h-full relative overflow-hidden">
+              <!-- Decorative Elements -->
+              <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 dark:bg-primary/10 rounded-full -mr-16 -mt-16"></div>
+              <div class="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full -ml-12 -mb-12"></div>
+
+              <!-- Testimonial Content with Z positioning to appear above decoration -->
+              <div class="relative z-10">
+                <!-- Top Section with Profile -->
+                <div class="flex items-center mb-4 sm:mb-6">
+                  <div class="relative">
+                    <img
+                      [src]="getGridTestimonial(i).avatar"
+                      [alt]="getGridTestimonial(i).name"
+                      class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-primary/50 object-cover"
+                      loading="lazy">
+                    <div class="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-primary rounded-full text-white flex items-center justify-center text-xs">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-2 sm:h-3 sm:w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="ml-3 sm:ml-4">
+                    <h4 class="text-base sm:text-lg font-bold text-gray-900 dark:text-white">{{ getGridTestimonial(i).name }}</h4>
+                    <p class="text-primary text-xs sm:text-sm">{{ getGridTestimonial(i).role }}</p>
+                  </div>
+                </div>
+
+                <!-- Testimonial Text -->
+                <div class="mb-4 sm:mb-6">
+                  <p class="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base">
+                    {{ getGridTestimonial(i).content }}
+                  </p>
+                </div>
+
+                <!-- Rating at Bottom -->
+                <div class="flex mt-auto">
+                  @for (star of [1, 2, 3, 4, 5]; track star) {
+                    <svg
+                      [class.text-yellow-400]="star <= getGridTestimonial(i).rating"
+                      [class.text-gray-300]="star > getGridTestimonial(i).rating"
+                      class="w-3 h-3 sm:w-4 sm:h-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated Border on Hover -->
+            <div class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary via-indigo-500 to-primary-light transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-10 md:mt-16 text-center">
+      <button class="testimonial-cta-button px-6 py-3 md:px-8 md:py-4 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl shadow-lg hover:shadow-primary/30 transform transition-all duration-300 hover:-translate-y-1">
+        View All Testimonials
+      </button>
     </div>
   </div>
 </section>

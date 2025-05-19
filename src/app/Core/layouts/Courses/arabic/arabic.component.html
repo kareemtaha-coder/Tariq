@@ -1,426 +1,305 @@
-<section
-  class="hero-section min-h-[85vh] md:min-h-[70vh] relative overflow-hidden"
->
-  <!-- Animated background elements -->
-  <div class="absolute inset-0 opacity-10">
-    <div
-      class="animate-float-slow absolute top-10 left-5 md:top-20 md:left-10 w-20 h-20 md:w-32 md:h-32 rounded-full bg-primary"
-    ></div>
-    <div
-      class="animate-float absolute top-20 right-10 md:top-40 md:right-20 w-16 h-16 md:w-24 md:h-24 rounded-full bg-secondary"
-    ></div>
-    <div
-      class="animate-float-fast absolute bottom-10 left-1/5 md:bottom-20 md:left-1/4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-accent"
-    ></div>
+<section class="hero-section relative min-h-[100vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
+  <!-- Video Background - Only visible on screens larger than 1000px -->
+  <div class="absolute inset-0 w-full h-full hidden xl:block">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 dark:from-black/80 dark:via-black/60 dark:to-black/80 z-10 transition-colors duration-300"></div>
+    <div class="relative w-full h-full">
+      <iframe
+        [src]="'https://www.youtube.com/embed/b37b4QPdcYY?autoplay=1&mute=1&rel=0&showinfo=0&controls=0&loop=1&playlist=b37b4QPdcYY' | safe"
+        class="absolute top-0 left-0 w-full h-full object-cover"
+        title="Arabic Course Introduction"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
   </div>
 
-  <div class="container mx-auto px-4 py-8 md:py-16 flex flex-col items-center">
-    <!-- Content Section -->
-    <div
-      class="content w-full text-center mb-6 md:mb-8 animate-fade-in max-w-4xl mx-auto"
-    >
-      <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary mb-4 tracking-tight leading-tight font-display"
-      >
-        <span class="block animate-title">Master the</span>
-        <span
-          class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary animate-title-delay"
-          >Arabic Language</span
-        >
-      </h1>
-      <p
-        class="text-base sm:text-lg md:text-xl text-text leading-relaxed mb-6 md:mb-8 max-w-2xl mx-auto animate-fade-up"
-      >
-        Embark on a journey to fluency with expert guidance. Our comprehensive Arabic courses combine speaking, reading, writing, and cultural immersion.
-      </p>
-    </div>
+  <!-- Floating Elements with Enhanced Animation -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 dark:bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob transition-colors duration-300"></div>
+    <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-secondary/10 dark:bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000 transition-colors duration-300"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-accent/10 dark:bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000 transition-colors duration-300"></div>
+    <!-- Added subtle grid pattern -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] transition-colors duration-300"></div>
+  </div>
 
-    <!-- Video Section with animation -->
-    <div
-      class="video-container w-full max-w-4xl mx-auto relative animate-fade-in-up rounded-xl overflow-hidden shadow-xl mb-8"
-    >
-      <!-- 16:9 aspect ratio wrapper -->
-      <div
-        class="relative pb-[56.25%] h-0 overflow-hidden rounded-xl bg-black/10"
-      >
-        <!-- YouTube iframe with safe pipe -->
-        <iframe
-          [src]="
-            'https://www.youtube.com/embed/b37b4QPdcYY?autoplay=0&rel=0&showinfo=0'
-              | safe
-          "
-          class="absolute top-0 left-0 w-full h-full rounded-xl"
-          title="Arabic Course Introduction"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        >
-        </iframe>
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+    <div class="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-16">
+      <!-- Left Content -->
+      <div class="w-full lg:w-1/2 text-center lg:text-left">
+        <!-- Enhanced Animated Badge -->
+        <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full border border-white/20 dark:border-white/10 mb-6 sm:mb-8 animate-fade-in transition-all duration-300 hover:scale-105 hover:bg-white/20 dark:hover:bg-white/10 cursor-default">
+          <span class="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-sm sm:text-base text-gray-900 dark:text-white font-medium">Learn Arabic</span>
+        </div>
 
-        <!-- Optional loading overlay
-        <div
-          class="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none"
-        >
-          <div
-            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/80 flex items-center justify-center animate-pulse"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 md:h-10 md:w-10 text-white"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                clip-rule="evenodd"
-              />
-            </svg>
+        <!-- Enhanced Main Title with Gradient Animation -->
+        <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
+          <span class="block mb-2 animate-fade-up bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">Discover the Beauty of</span>
+          <span class="block font-arabic text-4xl xs:text-5xl sm:text-6xl lg:text-8xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient hover:animate-pulse cursor-default">
+            اللغة العربية
+          </span>
+        </h1>
+
+        <!-- Enhanced Description with Hover Effect -->
+        <p class="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-white/80 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-up animation-delay-200 transition-all duration-300 hover:text-gray-900 dark:hover:text-white">
+          Immerse yourself in the rich tapestry of Arabic language and culture. Join thousands of learners on a transformative journey to fluency.
+        </p>
+
+        <!-- Enhanced CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-fade-up animation-delay-400">
+          <button class="group relative px-6 sm:px-8 py-3 sm:py-4 bg-primary hover:bg-primary-dark text-white text-sm sm:text-base font-medium rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+            <span class="relative z-10 flex items-center justify-center">
+              Start Your Journey
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-dark to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </button>
+          <button class="group px-6 sm:px-8 py-3 sm:py-4 bg-white/10 dark:bg-white/5 hover:bg-white/20 dark:hover:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white text-sm sm:text-base font-medium rounded-xl border border-gray-200 dark:border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <span class="flex items-center justify-center">
+              Explore Curriculum
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <!-- Enhanced Stats with Hover Effects -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-12 animate-fade-up animation-delay-600">
+          <div class="stat-card group bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-default">
+            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary dark:group-hover:text-primary transition-colors">98%</div>
+            <div class="text-xs sm:text-sm text-gray-600 dark:text-white/70 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">Success Rate</div>
           </div>
-        </div> -->
+          <div class="stat-card group bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-default">
+            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-secondary dark:group-hover:text-secondary transition-colors">5k+</div>
+            <div class="text-xs sm:text-sm text-gray-600 dark:text-white/70 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">Students</div>
+          </div>
+          <div class="stat-card group bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-default">
+            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-accent dark:group-hover:text-accent transition-colors">24/7</div>
+            <div class="text-xs sm:text-sm text-gray-600 dark:text-white/70 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">Support</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Decorative elements -->
-      <div
-        class="hidden md:block absolute -bottom-3 -left-3 w-16 h-16 rounded-full bg-accent/20 animate-pulse"
-      ></div>
-      <div
-        class="hidden md:block absolute -top-3 -right-3 w-20 h-20 rounded-full border-4 border-primary/20"
-      ></div>
-    </div>
-
-    <!-- Call to action buttons -->
-    <div
-      class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-up-delay w-full max-w-md mx-auto"
-    >
-      <button
-        class="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
-      >
-        Begin Your Journey
-      </button>
-      <button
-        class="w-full sm:w-auto px-6 py-3 bg-transparent border-2 border-primary text-primary hover:bg-primary/10 font-medium rounded-lg transition-all duration-300"
-      >
-        View Curriculum
-      </button>
-    </div>
-
-    <!-- Mobile app-like feature highlights -->
-    <div
-      class="w-full max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 md:mt-12"
-    >
-      <div
-        class="feature-card bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-primary/10 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-      >
-        <div
-          class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 text-primary"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"
-            />
-          </svg>
+      <!-- Right Content - Video and Feature Cards -->
+      <div class="w-full lg:w-1/2 space-y-4 sm:space-y-6 animate-fade-up animation-delay-400">
+        <!-- Enhanced Video Container -->
+        <div class="xl:hidden w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]">
+          <div class="relative pb-[56.25%] h-0">
+            <iframe
+              [src]="'https://www.youtube.com/embed/b37b4QPdcYY?autoplay=1&mute=1&rel=0&showinfo=0&controls=1&loop=1&playlist=b37b4QPdcYY' | safe"
+              class="absolute top-0 left-0 w-full h-full"
+              title="Arabic Course Introduction"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
-        <h3 class="font-bold text-lg mb-1">Pronunciation Mastery</h3>
-        <p class="text-sm text-text/80">
-          Learn proper Arabic pronunciation with expert guidance
-        </p>
-      </div>
 
-      <div
-        class="feature-card bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-primary/10 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-      >
-        <div
-          class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mb-3"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 text-secondary"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-              clip-rule="evenodd"
-            />
-          </svg>
+        <!-- Enhanced Main Feature Card -->
+        <div class="relative rounded-xl sm:rounded-2xl overflow-hidden group hover:shadow-xl transition-all duration-300">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 dark:from-primary/30 dark:to-secondary/30 backdrop-blur-sm transition-all duration-300 group-hover:opacity-90"></div>
+          <div class="relative p-4 sm:p-6 md:p-8">
+            <div class="flex items-start gap-3 sm:gap-4 md:gap-6">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-lg sm:rounded-xl bg-white/10 dark:bg-white/5 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20 dark:group-hover:bg-primary/30">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary transform group-hover:rotate-12 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-primary dark:group-hover:text-primary transition-colors">Expert-Led Learning</h3>
+                <p class="text-sm sm:text-base text-gray-600 dark:text-white/70 leading-relaxed transition-all duration-300 group-hover:text-gray-900 dark:group-hover:text-white">
+                  Learn from native Arabic speakers and experienced instructors who will guide you through every step of your language journey.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3 class="font-bold text-lg mb-1">Cultural Immersion</h3>
-        <p class="text-sm text-text/80">
-          Understand Arabic culture and traditions alongside the language
-        </p>
-      </div>
 
-      <div
-        class="feature-card bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-primary/10 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-      >
-        <div
-          class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mb-3"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 text-accent"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
-              clip-rule="evenodd"
-            />
-          </svg>
+        <!-- Enhanced Secondary Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+          <div class="group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 dark:bg-white/5 flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20 dark:group-hover:bg-primary/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary transform group-hover:rotate-12 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-primary transition-colors">Cultural Immersion</h4>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 transition-all duration-300 group-hover:text-gray-900 dark:group-hover:text-white">
+              Experience Arabic culture through authentic materials and real-world contexts
+            </p>
+          </div>
+
+          <div class="group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 dark:bg-white/5 flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-secondary/20 dark:group-hover:bg-secondary/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-secondary transform group-hover:rotate-12 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <h4 class="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-secondary dark:group-hover:text-secondary transition-colors">Interactive Learning</h4>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 transition-all duration-300 group-hover:text-gray-900 dark:group-hover:text-white">
+              Engage with interactive exercises and real-time feedback
+            </p>
+          </div>
         </div>
-        <h3 class="font-bold text-lg mb-1">Global Community</h3>
-        <p class="text-sm text-text/80">
-          Join learners from around the world on this language journey
-        </p>
       </div>
     </div>
+  </div>
+
+  <!-- Enhanced Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hover:scale-110 transition-transform cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-900 dark:text-white/50 hover:text-primary dark:hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
   </div>
 </section>
 
-<section class="course-overview py-12 md:py-20 bg-bg relative overflow-hidden">
+<section class="course-overview py-20 md:py-32 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
   <!-- Decorative background elements -->
   <div class="absolute inset-0 pointer-events-none">
-    <div
-      class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent"
-    ></div>
-    <div
-      class="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-secondary/10 blur-3xl"
-    ></div>
-    <div
-      class="absolute top-1/4 -left-12 w-40 h-40 rounded-full border border-primary/20 opacity-50"
-    ></div>
-    <div
-      class="absolute bottom-1/3 right-1/4 w-20 h-20 rotate-45 bg-accent/10"
-    ></div>
+    <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/10 to-transparent dark:from-primary/20 transition-colors duration-300"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-secondary/10 dark:bg-secondary/20 blur-3xl transition-colors duration-300"></div>
+    <div class="absolute top-1/4 -left-12 w-40 h-40 rounded-full border border-primary/20 dark:border-primary/30 opacity-50 transition-colors duration-300"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-20 h-20 rotate-45 bg-accent/10 dark:bg-accent/20 transition-colors duration-300"></div>
+    <!-- Animated grid pattern -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] transition-colors duration-300"></div>
   </div>
 
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 relative z-10">
     <!-- Section Header -->
-    <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
-      <div class="inline-block mb-3">
-        <span
-          class="bg-gradient-to-r from-primary/20 to-secondary/20 px-4 py-1 rounded-full text-sm font-medium text-primary"
-        >
-          Course Overview
-        </span>
+    <div class="text-center mb-16 md:mb-24 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full border border-white/20 dark:border-white/10 mb-6 transition-colors duration-300">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span class="text-gray-900 dark:text-white/90 font-medium transition-colors duration-300">Course Overview</span>
       </div>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-primary">
-        Your Journey Through Arabic Language
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white transition-colors duration-300">
+        Your Journey Through
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">Arabic Language</span>
       </h2>
-      <p class="text-base md:text-lg text-text/90 max-w-2xl mx-auto">
+      <p class="text-lg text-gray-600 dark:text-white/80 max-w-2xl mx-auto leading-relaxed transition-colors duration-300">
         Our comprehensive curriculum is designed to take you from beginner to fluent speaker, with courses suitable for all levels of learners.
       </p>
     </div>
 
     <!-- Stats Cards -->
-    <div class="grid grid-cols-2 gap-4 mb-12 md:mb-16">
-      <div
-        class="stat-card bg-white/5 backdrop-blur-sm border border-primary/10 rounded-lg p-4 md:p-6 text-center transform transition-all hover:scale-105 hover:shadow-lg"
-      >
-        <div class="text-primary text-3xl md:text-4xl font-bold mb-1">24/7</div>
-        <div class="text-text/80 text-sm md:text-base">Support Access</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 md:mb-24">
+      <div class="stat-card bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-16 h-16 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-6 transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="text-4xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">24/7</div>
+        <div class="text-gray-600 dark:text-white/70 transition-colors duration-300">Support Access</div>
       </div>
-      <div
-        class="stat-card bg-white/5 backdrop-blur-sm border border-primary/10 rounded-lg p-4 md:p-6 text-center transform transition-all hover:scale-105 hover:shadow-lg"
-      >
-        <div class="text-primary text-3xl md:text-4xl font-bold mb-1">5k+</div>
-        <div class="text-text/80 text-sm md:text-base">Active Students</div>
+      <div class="stat-card bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-16 h-16 rounded-xl bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center mb-6 transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+          </svg>
+        </div>
+        <div class="text-4xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">5k+</div>
+        <div class="text-gray-600 dark:text-white/70 transition-colors duration-300">Active Students</div>
+      </div>
+      <div class="stat-card bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-16 h-16 rounded-xl bg-accent/10 dark:bg-accent/20 flex items-center justify-center mb-6 transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="text-4xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">98%</div>
+        <div class="text-gray-600 dark:text-white/70 transition-colors duration-300">Success Rate</div>
       </div>
     </div>
 
     <!-- Course Benefits -->
-    <div class="mb-16">
-      <h3
-        class="text-xl md:text-2xl font-bold mb-6 text-center md:text-left text-primary"
-      >
-        What You'll Gain
+    <div class="mb-24">
+      <h3 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white transition-colors duration-300">
+        What You'll <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Gain</span>
       </h3>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Benefit Card 1 -->
-        <div
-          class="benefit-card bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
+        <div class="benefit-card group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
-          <h4 class="text-lg font-semibold mb-2 text-primary">
-            Structured Learning Path
-          </h4>
-          <p class="text-text/80 text-sm">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">Structured Learning Path</h4>
+          <p class="text-gray-600 dark:text-white/70 leading-relaxed transition-colors duration-300">
             Follow our carefully designed curriculum that gradually builds your knowledge and skills from basics to advanced conversation.
           </p>
         </div>
 
         <!-- Benefit Card 2 -->
-        <div
-          class="benefit-card bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-secondary"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
-              />
+        <div class="benefit-card group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-xl bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
             </svg>
           </div>
-          <h4 class="text-lg font-semibold mb-2 text-primary">
-            Perfect Pronunciation
-          </h4>
-          <p class="text-text/80 text-sm">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">Perfect Pronunciation</h4>
+          <p class="text-gray-600 dark:text-white/70 leading-relaxed transition-colors duration-300">
             Master proper Arabic sounds and accent with our specialized training techniques and personalized feedback.
           </p>
         </div>
 
         <!-- Benefit Card 3 -->
-        <div
-          class="benefit-card bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-accent"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
+        <div class="benefit-card group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-xl bg-accent/10 dark:bg-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
-          <h4 class="text-lg font-semibold mb-2 text-primary">
-            Reading & Writing Skills
-          </h4>
-          <p class="text-text/80 text-sm">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">Reading & Writing Skills</h4>
+          <p class="text-gray-600 dark:text-white/70 leading-relaxed transition-colors duration-300">
             Develop ability to read and write in Arabic script with our step-by-step approach and practical exercises.
           </p>
         </div>
 
         <!-- Benefit Card 4 -->
-        <div
-          class="benefit-card bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
+        <div class="benefit-card group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h4 class="text-lg font-semibold mb-2 text-primary">
-            Vocabulary Building
-          </h4>
-          <p class="text-text/80 text-sm">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">Vocabulary Building</h4>
+          <p class="text-gray-600 dark:text-white/70 leading-relaxed transition-colors duration-300">
             Learn essential Arabic vocabulary and phrases using proven memory techniques for long-term retention.
           </p>
         </div>
 
         <!-- Benefit Card 5 -->
-        <div
-          class="benefit-card bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-secondary"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              />
+        <div class="benefit-card group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-xl bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <h4 class="text-lg font-semibold mb-2 text-primary">
-            Community Support
-          </h4>
-          <p class="text-text/80 text-sm">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">Community Support</h4>
+          <p class="text-gray-600 dark:text-white/70 leading-relaxed transition-colors duration-300">
             Join a global community of Arabic learners for conversation practice, cultural exchange, and mutual encouragement.
           </p>
         </div>
 
         <!-- Benefit Card 6 -->
-        <div
-          class="benefit-card bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10 shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-accent"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-              />
+        <div class="benefit-card group bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-xl bg-accent/10 dark:bg-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
           </div>
-          <h4 class="text-lg font-semibold mb-2 text-primary">
-            Practical Conversation
-          </h4>
-          <p class="text-text/80 text-sm">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-300">Practical Conversation</h4>
+          <p class="text-gray-600 dark:text-white/70 leading-relaxed transition-colors duration-300">
             Develop everyday conversational skills through role-playing, dialogue practice, and real-world scenarios.
           </p>
         </div>
@@ -429,88 +308,88 @@
 
     <!-- Course Curriculum Preview -->
     <div class="mb-16">
-      <div
-        class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6"
-      >
-        <h3 class="text-xl md:text-2xl font-bold text-primary">
-          Curriculum Highlights
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 md:mb-0 transition-colors duration-300">
+          Curriculum <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Highlights</span>
         </h3>
       </div>
 
-      <div
-        class="bg-white/5 backdrop-blur-sm rounded-xl border border-primary/10 overflow-hidden"
-      >
+      <div class="bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden transition-colors duration-300">
         <!-- Module 1 -->
-        <div
-          class="curriculum-item border-b border-primary/10 hover:bg-primary/5 transition-colors"
-        >
-          <div
-            class="p-4 md:p-6 flex flex-col md:flex-row md:items-center justify-between cursor-pointer"
-          >
+        <div class="curriculum-item border-b border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-colors duration-300">
+          <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer group">
             <div class="flex items-start md:items-center">
-              <div
-                class="bg-primary/10 rounded-full w-8 h-8 flex items-center justify-center text-primary font-semibold mr-4 shrink-0"
-              >
+              <div class="bg-primary/10 dark:bg-primary/20 rounded-xl w-12 h-12 flex items-center justify-center text-primary font-semibold mr-6 shrink-0 group-hover:scale-110 transition-all duration-300">
                 1
               </div>
               <div>
-                <h4 class="font-medium text-primary">
-                  Arabic Alphabet and Pronunciation
-                </h4>
-                <p class="text-text/70 text-sm mt-1">
+                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Arabic Alphabet and Pronunciation</h4>
+                <p class="text-gray-600 dark:text-white/70 transition-colors duration-300">
                   Learn Arabic letters, sounds, and basic writing techniques
                 </p>
               </div>
             </div>
-
+            <div class="mt-4 md:mt-0">
+              <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary text-sm font-medium transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Start Learning
+              </span>
+            </div>
           </div>
         </div>
 
         <!-- Module 2 -->
-        <div
-          class="curriculum-item border-b border-primary/10 hover:bg-primary/5 transition-colors"
-        >
-          <div
-            class="p-4 md:p-6 flex flex-col md:flex-row md:items-center justify-between cursor-pointer"
-          >
+        <div class="curriculum-item border-b border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 transition-colors duration-300">
+          <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer group">
             <div class="flex items-start md:items-center">
-              <div
-                class="bg-primary/10 rounded-full w-8 h-8 flex items-center justify-center text-primary font-semibold mr-4 shrink-0"
-              >
+              <div class="bg-secondary/10 dark:bg-secondary/20 rounded-xl w-12 h-12 flex items-center justify-center text-secondary font-semibold mr-6 shrink-0 group-hover:scale-110 transition-all duration-300">
                 2
               </div>
               <div>
-                <h4 class="font-medium text-primary">Essential Vocabulary & Grammar</h4>
-                <p class="text-text/70 text-sm mt-1">
+                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Essential Vocabulary & Grammar</h4>
+                <p class="text-gray-600 dark:text-white/70 transition-colors duration-300">
                   Master foundational Arabic words, phrases, and grammatical structures
                 </p>
               </div>
             </div>
-
+            <div class="mt-4 md:mt-0">
+              <span class="inline-flex items-center px-4 py-2 rounded-full bg-secondary/10 dark:bg-secondary/20 text-secondary text-sm font-medium transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Start Learning
+              </span>
+            </div>
           </div>
         </div>
 
         <!-- Module 3 -->
-        <div
-          class="curriculum-item border-b border-primary/10 hover:bg-primary/5 transition-colors"
-        >
-          <div
-            class="p-4 md:p-6 flex flex-col md:flex-row md:items-center justify-between cursor-pointer"
-          >
+        <div class="curriculum-item hover:bg-white/20 transition-colors">
+          <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer group">
             <div class="flex items-start md:items-center">
-              <div
-                class="bg-primary/10 rounded-full w-8 h-8 flex items-center justify-center text-primary font-semibold mr-4 shrink-0"
-              >
+              <div class="bg-accent/10 dark:bg-accent/20 rounded-xl w-12 h-12 flex items-center justify-center text-accent font-semibold mr-6 shrink-0 group-hover:scale-110 transition-all duration-300">
                 3
               </div>
               <div>
-                <h4 class="font-medium text-primary">Everyday Conversations</h4>
-                <p class="text-text/70 text-sm mt-1">
+                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Everyday Conversations</h4>
+                <p class="text-gray-600 dark:text-white/70 transition-colors duration-300">
                   Practice dialogues and phrases for real-world communication situations
                 </p>
               </div>
             </div>
-
+            <div class="mt-4 md:mt-0">
+              <span class="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 dark:bg-accent/20 text-accent text-sm font-medium transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Start Learning
+              </span>
+            </div>
           </div>
         </div>
       </div>

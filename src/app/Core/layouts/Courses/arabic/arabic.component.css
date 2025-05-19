@@ -1,0 +1,68 @@
+  /* Font for Arabic characters */
+  .font-arabic {
+    font-family: "Amiri", "Scheherazade New", serif;
+  }
+
+  /* Animated expanding line under heading */
+  @keyframes expandLine {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  .animate-expand-line {
+    animation: expandLine 1.5s forwards ease-out;
+  }
+
+  /* 3D card effect */
+  .perspective-container {
+    perspective: 1000px;
+  }
+
+  .hover\:rotate-y-10:hover {
+    transform: rotateY(10deg);
+  }
+
+  /* Typewriter effect */
+  .typewriter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .typewriter-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    animation: typewriter 12s infinite;
+  }
+
+  .typewriter-text:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .typewriter-text:nth-child(2) {
+    animation-delay: 4s;
+  }
+
+  .typewriter-text:nth-child(3) {
+    animation-delay: 8s;
+  }
+
+  @keyframes typewriter {
+    0%, 10% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    15%, 30% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    35%, 40% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
