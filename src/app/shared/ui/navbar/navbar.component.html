@@ -1,76 +1,170 @@
-<header class="sticky top-0 left-0 w-full z-50 transition-all duration-300" [ngClass]="{'bg-white/90 dark:bg-gray-900/90 shadow-lg backdrop-blur-lg': navScrolled(), 'bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm': !navScrolled()}">
+<header
+  class="sticky top-0 left-0 w-full z-50 transition-all duration-300"
+  [ngClass]="{
+    'bg-white/90 dark:bg-gray-900/90 shadow-lg backdrop-blur-lg': navScrolled(),
+    'bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm': !navScrolled()
+  }"
+>
   <div class="container mx-auto px-4 py-3">
     <nav class="flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center logo-container">
-        <a routerLink="/" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-          <img src="/logo.webp" alt="Tabiiyn Institute Logo" class="h-10 sm:h-12 w-auto">
-          <span class="font-semibold text-lg text-gray-800 dark:text-white hidden sm:block"></span>
+        <a
+          routerLink="/"
+          class="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            src="/logo.webp"
+            alt="Tabiiyn Institute Logo"
+            class="h-10 sm:h-12 w-auto"
+          />
+          <span
+            class="font-semibold text-lg text-gray-800 dark:text-white hidden sm:block"
+          ></span>
         </a>
       </div>
 
       <!-- Desktop Navigation -->
       <div class="hidden lg:flex items-center gap-1">
-        <a routerLink="/"
-           class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium">
+        <a
+          routerLink="/"
+          class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium"
+        >
           Home
         </a>
 
         <!-- Courses Dropdown - Desktop -->
         <div class="relative group">
-          <button class="nav-link flex items-center gap-1 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium">
+          <button
+            class="nav-link flex items-center gap-1 px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium"
+          >
             <span>Courses</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
-          <div class="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-gray-100 dark:border-gray-700 overflow-hidden">
-            <a routerLink="/ quran" class="dropdown-item flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          <div
+            class="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-gray-100 dark:border-gray-700 overflow-hidden"
+          >
+            <a
+              routerLink="/ quran"
+              class="dropdown-item flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary transition-all duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
               </svg>
               <span>Quran Studies</span>
             </a>
-            <a routerLink="/arabic" class="dropdown-item flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+            <a
+              routerLink="/arabic"
+              class="dropdown-item flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary transition-all duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                />
               </svg>
               <span>Arabic Language</span>
             </a>
-            <a routerLink="/islamic" class="dropdown-item flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            <a
+              routerLink="/islamic"
+              class="dropdown-item flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary transition-all duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
               </svg>
               <span>Islamic Studies</span>
             </a>
           </div>
         </div>
 
-        <a routerLink="/" (click)="navigateToFragment('about')"
-           class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium">
+        <a
+          routerLink="/"
+          (click)="navigateToFragment('about')"
+          class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium"
+        >
           About Us
         </a>
 
-          @if (isUserLogedIn()) {
-          <a (click)="logout()"
-             class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium cursor-pointer">
-            Logout
-          </a>
+        @if (isUserLogedIn()) {
+        <a
+          (click)="logout()"
+          class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium cursor-pointer"
+        >
+          Logout
+        </a>
         } @else {
-          <a routerLink="/login"
-             class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium">
-            Login
-          </a>
+        <a
+          routerLink="/login"
+          class="nav-link px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-300 font-medium"
+        >
+          Login
+        </a>
         }
       </div>
 
       <!-- Right side actions -->
       <div class="flex items-center gap-3">
         <!-- Contact Button -->
-        <button (click)="this.contactService.openModal()"
-                class="contact-button hidden lg:flex items-center gap-2 px-6 py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-all duration-300 shadow hover:shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <button
+          (click)="this.contactService.openModal()"
+          class="contact-button hidden lg:flex items-center gap-2 px-6 py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-all duration-300 shadow hover:shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
           </svg>
           <span>Contact Us</span>
         </button>
@@ -118,15 +212,39 @@
           [attr.aria-expanded]="mobileMenuOpen()"
           (click)="toggleMobileMenu()"
         >
-          <div class="hamburger-icon relative flex items-center justify-center w-6 h-6">
+          <div
+            class="hamburger-icon relative flex items-center justify-center w-6 h-6"
+          >
             @if (mobileMenuOpen()) {
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary transition-transform duration-300 animate-fadeIn" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-primary transition-transform duration-300 animate-fadeIn"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
             } @else {
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 animate-fadeIn" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 transition-transform duration-300 animate-fadeIn"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
             }
           </div>
         </button>
@@ -138,33 +256,64 @@
   <div
     #mobileMenu
     class="mobile-menu lg:hidden fixed left-0 right-0 top-[57px] backdrop-blur-lg z-50"
-    [ngClass]="{'mobile-menu-enter-active': mobileMenuOpen(), 'mobile-menu-enter': !mobileMenuOpen()}"
+    [ngClass]="{
+      'mobile-menu-enter-active': mobileMenuOpen(),
+      'mobile-menu-enter': !mobileMenuOpen()
+    }"
     [attr.aria-hidden]="!mobileMenuOpen()"
   >
-    <div class="bg-white/95 dark:bg-gray-900/95 border-t border-gray-100 dark:border-gray-800 shadow-xl h-full max-h-[calc(100vh-57px)]">
+    <div
+      class="bg-white/95 dark:bg-gray-900/95 border-t border-gray-100 dark:border-gray-800 shadow-xl h-full max-h-[calc(100vh-57px)]"
+    >
       <div class="container mx-auto py-2">
         <div class="space-y-0.5 pb-20">
           <!-- Mobile Navigation Links -->
           <a
             routerLink="/"
-          (click)="closeMobileMenu()"
+            (click)="closeMobileMenu()"
             class="mobile-link flex items-center justify-between px-5 py-4 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-all duration-300 border-b border-gray-100 dark:border-gray-800/80"
           >
             <div class="flex items-center gap-3">
-              <div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              <div
+                class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
                 </svg>
               </div>
               <span class="font-medium">Home</span>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </a>
 
           <!-- Courses Dropdown - Mobile -->
-          <div class="relative mobile-accordion border-b border-gray-100 dark:border-gray-800/80">
+          <div
+            class="relative mobile-accordion border-b border-gray-100 dark:border-gray-800/80"
+          >
             <button
               (click)="toggleCoursesMenu($event)"
               class="mobile-link flex items-center justify-between w-full px-5 py-4 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-all duration-300"
@@ -172,172 +321,388 @@
               type="button"
             >
               <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                <div
+                  class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
                   </svg>
                 </div>
                 <span class="font-medium">Courses</span>
               </div>
               <div class="flex items-center">
                 @if (coursesMenuOpen()) {
-                  <div class="flex items-center justify-center w-5 h-5 rounded-full bg-primary/10 text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                  </div>
+                <div
+                  class="flex items-center justify-center w-5 h-5 rounded-full bg-primary/10 text-primary"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-3 w-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 15l7-7 7 7"
+                    />
+                  </svg>
+                </div>
                 } @else {
-                  <div class="flex items-center justify-center w-5 h-5 text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-                  </div>
+                <div
+                  class="flex items-center justify-center w-5 h-5 text-gray-400"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
                 }
               </div>
-          </button>
+            </button>
 
-            <div class="overflow-hidden transition-all duration-300 ease-in-out"
-                 [ngClass]="{'max-h-[300px] opacity-100': coursesMenuOpen(), 'max-h-0 opacity-0': !coursesMenuOpen()}"
-                 [attr.aria-hidden]="!coursesMenuOpen()">
+            <div
+              class="overflow-hidden transition-all duration-300 ease-in-out"
+              [ngClass]="{
+                'max-h-[300px] opacity-100': coursesMenuOpen(),
+                'max-h-0 opacity-0': !coursesMenuOpen()
+              }"
+              [attr.aria-hidden]="!coursesMenuOpen()"
+            >
               <div class="pl-16 pr-5 py-1 bg-gray-50/80 dark:bg-gray-800/50">
                 <a
                   routerLink="/quran"
-                (click)="closeMobileMenu()"
+                  (click)="closeMobileMenu()"
                   class="dropdown-item flex items-center justify-between py-3.5 text-gray-700 dark:text-gray-200 border-b border-gray-100/50 dark:border-gray-700/30 hover:text-primary dark:hover:text-primary transition-all duration-300"
                 >
                   <div class="flex items-center gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-primary/70"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                      />
                     </svg>
                     <span>Quran Studies</span>
                   </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
-              </a>
-              <a
+                </a>
+                <a
                   routerLink="/arabic"
-                (click)="closeMobileMenu()"
+                  (click)="closeMobileMenu()"
                   class="dropdown-item flex items-center justify-between py-3.5 text-gray-700 dark:text-gray-200 border-b border-gray-100/50 dark:border-gray-700/30 hover:text-primary dark:hover:text-primary transition-all duration-300"
                 >
                   <div class="flex items-center gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-primary/70"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                      />
                     </svg>
                     <div>Arabic Language</div>
                   </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
-              </a>
-              <a
+                </a>
+                <a
                   routerLink="/islamic"
-                (click)="closeMobileMenu()"
+                  (click)="closeMobileMenu()"
                   class="dropdown-item flex items-center justify-between py-3.5 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-all duration-300"
                 >
                   <div class="flex items-center gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-primary/70"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      />
                     </svg>
                     <span>Islamic Studies</span>
                   </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <a
+          <a
             (click)="navigateToFragment('about'); closeMobileMenu()"
             class="mobile-link flex items-center justify-between px-5 py-4 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-all duration-300 cursor-pointer border-b border-gray-100 dark:border-gray-800/80"
           >
             <div class="flex items-center gap-3">
-              <div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <div
+                class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
               <span class="font-medium">About Us</span>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </a>
 
           @if (isUserLogedIn()) {
-            <a
-              (click)="logout(); closeMobileMenu()"
-              class="mobile-link flex items-center justify-between px-5 py-4 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-all duration-300 cursor-pointer border-b border-gray-100 dark:border-gray-800/80"
-            >
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 dark:bg-red-900/30 dark:text-red-400">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                  </svg>
-                </div>
-                <span class="font-medium">Logout</span>
+          <a
+            (click)="logout(); closeMobileMenu()"
+            class="mobile-link flex items-center justify-between px-5 py-4 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-all duration-300 cursor-pointer border-b border-gray-100 dark:border-gray-800/80"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500 dark:bg-red-900/30 dark:text-red-400"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
+                </svg>
               </div>
-            </a>
+              <span class="font-medium">Logout</span>
+            </div>
+          </a>
           } @else {
-            <a
-              routerLink="/login"
-              (click)="closeMobileMenu()"
-              class="mobile-link flex items-center justify-between px-5 py-4 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-all duration-300 border-b border-gray-100 dark:border-gray-800/80"
-            >
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                  </svg>
-                </div>
-                <span class="font-medium">Login</span>
+          <a
+            routerLink="/login"
+            (click)="closeMobileMenu()"
+            class="mobile-link flex items-center justify-between px-5 py-4 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-all duration-300 border-b border-gray-100 dark:border-gray-800/80"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                  />
+                </svg>
               </div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+              <span class="font-medium">Login</span>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
           }
 
           <!-- Theme Switcher -->
-          <div class="flex justify-between mt-5 mx-5 p-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800/60 shadow-sm">
-            <div class="text-gray-800 dark:text-gray-200 font-medium">App Theme</div>
+          <div
+            class="flex justify-between mt-5 mx-5 p-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800/60 shadow-sm"
+          >
+            <div class="text-gray-800 dark:text-gray-200 font-medium">
+              App Theme
+            </div>
             <div class="flex gap-2">
               <button
                 (click)="toggleTheme(); themeDark.set(false)"
                 class="theme-btn relative flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200"
-                [ngClass]="{'bg-primary/20 text-primary': !themeDark(), 'bg-transparent text-gray-400': themeDark()}"
+                [ngClass]="{
+                  'bg-primary/20 text-primary': !themeDark(),
+                  'bg-transparent text-gray-400': themeDark()
+                }"
                 aria-label="Light theme"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
                 </svg>
               </button>
               <button
                 (click)="toggleTheme(); themeDark.set(true)"
                 class="theme-btn relative flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200"
-                [ngClass]="{'bg-primary/20 text-primary': themeDark(), 'bg-transparent text-gray-400': !themeDark()}"
+                [ngClass]="{
+                  'bg-primary/20 text-primary': themeDark(),
+                  'bg-transparent text-gray-400': !themeDark()
+                }"
                 aria-label="Dark theme"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
                 </svg>
               </button>
             </div>
           </div>
 
           <!-- Contact Button - Fixed at bottom of mobile menu -->
-          <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-gray-900/90 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] border-t border-gray-100 dark:border-gray-800">
-        <button
+          <div
+            class="fixed bottom-8 left-0 right-0 p-4 bg-white/90 dark:bg-gray-900/90 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] border-t border-gray-100 dark:border-gray-800"
+          >
+            <button
               (click)="this.contactService.openModal(); closeMobileMenu()"
               class="contact-button flex items-center justify-center gap-2 w-full px-4 py-4 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
-        >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
               </svg>
               <span>Contact Us</span>
-        </button>
+            </button>
           </div>
         </div>
       </div>
